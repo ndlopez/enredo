@@ -2,22 +2,35 @@
 =begin
 Jumble this word if you can
 =end
+require 'json'
+
 datFile = File.open("en_words.txt")
-
 file_data = datFile.readlines.map(&:chomp)
-
 datFile.close
 
 jdx=0
 jumble_words = Array.new
 myTries = Array.new
-
-while jdx < 4
-  count = 0
+while jumble_words.length < 4
   idx = rand 0..file_data.length
-  #puts file_data[idx]
   word = file_data[idx]
-  jumble_words << word
+  if word.length > 3 and word.length < 9
+    jumble_words << word
+  end
+  jdx+=1
+end
+puts "Length",jumble_words.length
+File.open("jumble_words.json","w") do |f|
+  f.write(jumble_words.to_json)
+end
+jdx=0
+#jumble_words = Array.new
+while jdx < jumble_words.length
+  count = 0
+  #idx = rand 0..file_data.length
+  #puts file_data[idx]
+  word = jumble_words[jdx]
+  #jumble_words << word
   jumbleWord = word.split('').shuffle.join(' ')
   print jdx + 1," Jumble this: ",jumbleWord
   puts ""
