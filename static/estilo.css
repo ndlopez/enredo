@@ -3,7 +3,7 @@ body{
   font-family:Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
   background-color:#bed2e0;
   width:600px;
-  padding: 20px 120px;
+  padding: 20px 20px;
 }
 .menu{
     float:left;
@@ -33,17 +33,31 @@ h1{color:#2e4054;}
   padding: 0px;
   color:#cc274c;
 }
+.columnLeft{
+  float:left;
+  width: 70%; /*for 3 ->33.3%*/
+  padding:10px;
+  border:0px;
+}
+.columnRight{
+  float:left;
+  width: 30%; /*for 3 ->33.3%*/
+  padding:10px;
+  border:0px;
+}
 .oneLetterCol{
     float:left;
     width:10%;
-    padding:5px;
-    border:0px;
+    margin:0px;
+    padding:2px;
+    /*border:1px solid;*/
 }
-#shufWord{text-align: center;}
+#shufWord{padding-left: 10px;}
 input{
     font-size:x-large;
     width:30px;
     text-align:center;
+    text-transform: uppercase !important;
 }
 /*2 columns*/
 .column{
@@ -109,36 +123,12 @@ li a, .dropbtn{
 }
 li a:hover, .dropdown:hover .dropbtn{background-color:#2e4054;}
 li.dropdown{display:inline-block;}
-.dropdown-content{
-  display:none;
-  padding:0px;
-  position:absolute;
-  background-color:#2e4054;
-  min-width:120px;
-  width:25%;
-  box-shadow:0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index:1;
-}
-.dropdown-content a{
-  color:black;
-  padding:12px 16px;
-  text-decoration:none;
-  display:block;
-  text-align:center;
-}
-.dropdown-content a:hover{background-color:#f1f1f1;}
-.dropdown:hover .dropdown-content{display:block;}
-#pidd:hover{background-color:white;letter-spacing:3px;}
-.panel{
-  padding:0 18px;
-  display:none;
-  background-color:#e5e5e5;
-  overflow:hidden;
-}
 button{
-background-color:#2e4054;
-color:white;
-text-align:center;
+  background-color:#2e4054;
+  color:white;
+  text-align:center;
+  padding: 5px;
+  margin:3px;
 }
 .copy-left{
   display:inline-block;

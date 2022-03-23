@@ -55,4 +55,10 @@ while jdx < jumble_words.length
   jdx += 1
 end
 puts "Congrats!! you solved today's jumble"
-puts jumble_words, myTries
+
+jdx=0
+puts "Words   Your tries"
+while jdx < jumble_words.length
+  puts jumble_words[jdx], myTries[jdx]
+  jdx+=1
+end
