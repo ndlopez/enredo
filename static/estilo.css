@@ -38,6 +38,9 @@ h1{color:#2e4054;}
 input{
     font-size:x-large;
     width:30px;
+    border: 1px solid #2e4054;
+    border-radius: 4px;
+    background-color: #ccc;
     text-align:center;
     text-transform: uppercase !important;
 }

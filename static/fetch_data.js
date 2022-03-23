@@ -51,8 +51,24 @@ fetch(url)
         //console.log("inputs",text);
         document.getElementById("jumble_this_word").innerHTML = text;
     }
+    for (let idx = 0; idx < jumble_words.length; idx++) {
+        for (let letter of jumble_words[idx]){
+            letter = letter.toUpperCase();
+            let inputVal = document.getElementById(letter);
+            inputVal.onkeyup = function(){
+                if (inputVal.value.match(letter)){
+                    inputVal.classList.remove("correct");
+                    inputVal.classList.add("wrong");                                        
+                } else {
+                    inputVal.classList.remove("wrong");
+                    inputVal.classList.add("correct");
+                }
+            }
+            console.log(letter,inputVal);
+        }
+    }
 
-    console.log(jumble_words);
+    //console.log(jumble_words);
 })
 .catch((err)=>{
 	console.log("Couldnt fetch " + jumble_words + err);
