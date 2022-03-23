@@ -39,22 +39,12 @@ h1{color:#2e4054;}
     padding:5px;
     border:0px;
 }
+#shufWord{text-align: center;}
 input{
     font-size:x-large;
-    width:25px;
+    width:30px;
     text-align:center;
 }
-#zenith{
-  text-align: right;
-  font-size: x-large;
-}
-/*.topnav{overflow:hidden;background-color:#333;}
-.topnav a{
-    float:left;display:block; color:#f2f2f2;text-align:center;
-    padding:14px 16px; text-decoration:none;
-}
-.topnav a:hover{background-color:lightgray;color:blue;}*/
-/*p::first-letter{color:#ff0000;font-size:xx-large;}*/
 /*2 columns*/
 .column{
   float:left;
@@ -138,58 +128,7 @@ li.dropdown{display:inline-block;}
 }
 .dropdown-content a:hover{background-color:#f1f1f1;}
 .dropdown:hover .dropdown-content{display:block;}
-/*Table schedule*/
-#myday{
-  border-collapse:collapse;
-  width:100%;
-}
-#myday td,#myday th{
-  border:1px solid #ddd;
-  padding:10px;
-  text-align:left;
-  background-color:#bed2e0;
-  color:#2e4054;
-}
-#myday tr:nth-child(even){background-color:#f2f2f2;}
-#myday tr:hover{background-color:#ddd;}
-/*table cols title
-#myday th{
-    padding-top:12px;
-    padding-bottom:12px;
-    text-align:left;
-    background-color:#4caf50;
-    color:white;
-}*/
 #pidd:hover{background-color:white;letter-spacing:3px;}
-.accordion{
-  /*background-color:#bed2e0;*/
-  color:#bed2e0;
-  cursor:pointer;
-  padding:18px;
-  width:100%;
-  border:none;
-  outline:none;
-  font-size:18px;
-  transition:0.4s;
-}
-/*.active, .accordion:hover{
-  background-color:#cc274c;
-  color:#bed2e0;
-}*/
-.accordion:after{
-  content:'\02193';/*Down*/
-  color:#bed2e0;
-  font-size: x-large;
-  /*'\02795';
-  background-color: #bed2e0;*/
-  float:right;margin-left:5px;
-}
-.active:after{
-  content:'\02191';/*Up*/
-  color:#bed2e0;
-  font-size: x-large;
-  /*content:"\02796";
-  background-color: #bed2e0;*/}
 .panel{
   padding:0 18px;
   display:none;
@@ -219,11 +158,6 @@ text-align:center;
       width:100%;
       text-align: justify;
     }
-    svg{
-      width: 100%;
-      padding: 0px;
-    }
-    #zenith{font-size: large;}
     li{width:100%;}
     .dropdown-content{width:50%;}
 }
