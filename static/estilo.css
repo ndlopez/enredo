@@ -5,29 +5,11 @@ body{
   width:600px;
   padding: 20px 20px;
 }
-.menu{
-    float:left;
-    width:20%;
-    text-align:center;
-}
-.menuitem{
-    background-color:#e5e5e5;
-    padding:8px;
-    margin-top:7px;
-}
 .header{
     background-color:#bed2e0;
     padding:20px;text-align:center;}
 h1{color:#2e4054;}
-.sticky{
-  display: block;
-  width: auto;
-  padding: 0px;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  background-color: #2e4054;
-}
+
 #currtime {
   text-align: right;
   padding: 0px;
@@ -59,6 +41,8 @@ input{
     text-align:center;
     text-transform: uppercase !important;
 }
+.wrong{color:#cc274c;}
+.correct{color: #2e4054;}
 /*2 columns*/
 .column{
   float:left;
@@ -74,27 +58,6 @@ input{
   padding:0px;
 }
 
-.bottom-left{
-  border:0px;
-  position:absolute;
-  top:50%;/*8px;*/
-  left:50%;/*16px;*/
-  transform:translate(-50%,-50%);}
-.container{
-  border:0px;
-  position:relative;
-  color:#cc274c;
-}
-panel2,.flip{
-  font-size:16px;
-  padding:10px;
-  text-align:center;
-  background-color:#2e4054;
-  color:white;
-  border:solid 1px #cc274c;
-  margin:auto;
-}
-#panel2{display:none;}
 div{
   /*opacity:0.8;filter:alpha(opacity=10);*/
   border:1px solid #bed2e0;
