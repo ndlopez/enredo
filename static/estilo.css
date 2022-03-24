@@ -1,8 +1,9 @@
 *{box-sizing:border-box;}
 body{
   font-family:Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
+  /*background: linear-gradient(45deg, hsl(240, 50%, 78%), hsl(30, 100%, 50%));*/
   background-color:#bed2e0;
-  width:600px;
+  width: 600px;
   padding: 20px 20px;
 }
 .header{
@@ -20,6 +21,7 @@ h1{color:#2e4054;}
   width: 70%; /*for 3 ->33.3%*/
   padding:10px;
   border:0px;
+  background-color: antiquewhite;
 }
 .columnRight{
   float:left;
@@ -28,13 +30,24 @@ h1{color:#2e4054;}
   border:0px;
 }
 .oneLetterCol{
-    float:left;
-    width:10%;
-    margin:0px;
-    padding:2px;
-    /*border:1px solid;*/
+  float:left;
+  width:10%;
+  margin:0px;
+  padding:2px;
+  border:0px;
 }
-#shufWord{padding-left: 10px;}
+.result{
+  float: left;
+  width: 10%;
+  background-color: green;
+  height:35px;
+  border-radius: 35px;
+  margin-left: 20px;
+}
+#shufWord{
+  padding-left: 10px;
+  border: 0px;
+}
 input{
     font-size:x-large;
     width:30px;
@@ -44,8 +57,10 @@ input{
     text-align:center;
     text-transform: uppercase !important;
 }
-.wrongAns{color:#cc274c;}
-.correctAns{color: #2e4054;}
+/*input[data-state="wrongAns"]{color:tomato;}
+input[data-state="correctAns"]{color:slateblue;}*/
+.wrongAns{color:tomato;}
+.correctAns{color: slateblue;}
 /*2 columns*/
 .column{
   float:left;
@@ -53,14 +68,23 @@ input{
   padding:10px;
   border:0px;
 }
-.row{padding: 0px;}
+.row{
+  padding: 0px;
+  border: 0px;
+}
 .row:after{
   content:"";
   display:table;
   clear:both;
   padding:0px;
 }
+.separator{
+  background-color: #bed2e0;
+  height: 10px;
+}
+.separator:last-child{background-color:antiquewhite;}
 
+#jumble_this_word{border: 0px;}
 div{
   /*opacity:0.8;filter:alpha(opacity=10);*/
   border:1px solid #bed2e0;
@@ -71,6 +95,7 @@ div{
   content:"";
   clear:both;
   display:table;
+  border: 0px;
 }
 /*menu dropdown*/
 ul{
