@@ -67,6 +67,10 @@ fetch(url)
                 else {
                     inputVal.classList.remove("correctAns");
                 }
+                if (myVal === ""){
+                    inputVal.classList.add("correctAns");
+                    inputVal.classList.add("wrongAns");
+                }
             }
             //console.log(letter,inputVal);
         }

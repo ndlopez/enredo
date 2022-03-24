@@ -114,6 +114,11 @@ button{
       width:100%;
       text-align: justify;
     }
+    body{
+      width: 100%;
+      padding: 0px;
+    }
+    .columnLeft,.columnRight{width:100%;}
     li{width:100%;}
     .dropdown-content{width:50%;}
 }
