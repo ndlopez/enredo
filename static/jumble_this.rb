@@ -5,11 +5,13 @@ Version 0.15, 2022-03-24
 
 issue: 
   When generating JSON, should avoid Capitalized words.
+  Solved! I used VIM and RegEx to DEL all those words + 
+  those that contain this char '
   Must display 4 words to play the game not the whole "num_words"
 =end
 require 'json'
 
-num_words = 10
+num_words = 50
 datFile = File.open("en_words.txt")
 file_data = datFile.readlines.map(&:chomp)
 datFile.close
