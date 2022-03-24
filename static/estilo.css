@@ -44,8 +44,8 @@ input{
     text-align:center;
     text-transform: uppercase !important;
 }
-.wrong{color:#cc274c;}
-.correct{color: #2e4054;}
+.wrongAns{color:#cc274c;}
+.correctAns{color: #2e4054;}
 /*2 columns*/
 .column{
   float:left;

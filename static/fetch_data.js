@@ -55,13 +55,14 @@ fetch(url)
         for (let letter of jumble_words[idx]){
             letter = letter.toUpperCase();
             let inputVal = document.getElementById(letter);
+            inputVal.classList.add("correctAns");
+            inputVal.classList.add("wrongAns");
             inputVal.onkeyup = function(){
-                if (inputVal.value.match(letter)){
-                    inputVal.classList.remove("correct");
-                    inputVal.classList.add("wrong");                                        
-                } else {
-                    inputVal.classList.remove("wrong");
-                    inputVal.classList.add("correct");
+                var myVal = inputVal.value;
+                if (myVal.toUpperCase() === letter){
+                    inputVal.classList.remove("wrongAns");}
+                else {
+                    inputVal.classList.remove("correctAns");
                 }
             }
             console.log(letter,inputVal);

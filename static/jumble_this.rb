@@ -1,9 +1,15 @@
 #!/bin/ruby
 =begin
-Jumble this word if you can
+Console game of Jumble.
+Version 0.15, 2022-03-24
+
+issue: 
+  When generating JSON, should avoid Capitalized words.
+  Must display 4 words to play the game not the whole "num_words"
 =end
 require 'json'
 
+num_words = 10
 datFile = File.open("en_words.txt")
 file_data = datFile.readlines.map(&:chomp)
 datFile.close
@@ -11,7 +17,8 @@ datFile.close
 jdx=0
 jumble_words = Array.new
 myTries = Array.new
-while jumble_words.length < 4
+
+while jumble_words.length < num_words
   idx = rand 0..file_data.length
   word = file_data[idx]
   if word.length > 3 and word.length < 9
@@ -19,10 +26,18 @@ while jumble_words.length < 4
   end
   jdx+=1
 end
-puts "Length",jumble_words.length
+
 File.open("jumble_words.json","w") do |f|
   f.write(jumble_words.to_json)
 end
+print "JSON file saved. Lenght: ",jumble_words.length, "words.\n"
+
+puts "wanna play Jumble? y/n"
+ans=gets.chomp
+if ans == "n"
+  exit
+end
+
 jdx=0
 #jumble_words = Array.new
 while jdx < jumble_words.length
@@ -44,7 +59,7 @@ while jdx < jumble_words.length
       print "Hint: the word starts with... ",word[0]
       puts ""
     end
-    puts "Try again..."
+    puts "Try again... or hit Enter to display the next word"
     myWord = gets.chomp
     count += 1
   end
