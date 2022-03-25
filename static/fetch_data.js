@@ -33,35 +33,41 @@ fetch(url)
         /* Build as many inputs as the length of a word*/
         text += "<div class='row'>";
         for (let idx = 0; idx < jumble_word.length; idx++) {
-            text += "<div class='oneLetterCol'><input class='wrongAns' id='"+ jumble_word[idx]+"' maxlength=1></div>";
+            text += "<div class='oneLetterCol'><input class='wrongAns' ";
+            text += "id='"+ jumble_word[idx]+"' maxlength=1></div>";            
         }
         text += "<div class='result'></div>"
         text += "</div><div class='row separator'></div>";
-        //console.log("inputs",text);
+        
+        console.log("word ",jumble_word,jdx);
+
+        valid_input(jumble_word);
         document.getElementById("jumble_this_word").innerHTML = text;
 
         /* validation should run here....*/
-        for (let letter of jumble_words[randIdx]){
-            letter = letter.toUpperCase();
-            let inputVal = document.getElementById(letter);
+    }
+
+    function valid_input(thisValue){
+        for(let thisLtr of thisValue){
+            thisLtr = thisLtr.toUpperCase();
+            let inputVal = document.getElementById(thisLtr);
             inputVal.onkeyup = function(){
                 var myVal = inputVal.value;
-                if (myVal.toUpperCase() === letter){
+                if (myVal.toUpperCase() === thisLtr){
                     inputVal.classList.remove("wrongAns");
                     inputVal.classList.add("correctAns");
                     counter += 1;
                 }
                 else{
-                    if(myVal.value === "" || myVal.toUpperCase !== letter){
+                    if(myVal.value === "" || myVal.toUpperCase !== thisLtr){
                         inputVal.classList.remove("correctAns");
                         inputVal.classList.add("wrongAns");
                     }
                 }
             }
-            console.log("correct ans",counter);
         }
     }
-
+    
     /*for (let idx = 0; idx < usedWords.length; idx++) {
         for (let letter of usedWords[idx]){
             letter = letter.toUpperCase();
@@ -90,4 +96,4 @@ fetch(url)
 })
 .catch((err)=>{
 	console.log("Couldnt fetch " + jumble_words + err);
-})
+});

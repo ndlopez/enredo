@@ -36,12 +36,12 @@ var my_data = "https://raw.githubusercontent.com/ndlopez/jumble_game/main/static
 xhr.onreadystatechange = function(){
     if(this.readyState == 4 && this.status == 200){
         jumble_words = JSON.parse(this.responseText);
-
-        for (let jdx = 0; jdx < jumble_words.length; jdx++) {
+        
+        /*for (let jdx = 0; jdx < jumble_words.length; jdx++) {
             var jumble_word=jumble_words[jdx];
             jumble_word=jumble_word.toUpperCase();
             text += "<div class='row' id='shufWord'><h2>" + jumble_word.shuffle() + "</h2></div>";
-            /* Build as many inputs as the length of a word*/
+            
             text += "<div class='row' id='inputLetters'>";
             for (let idx = 0; idx < jumble_word.length; idx++) {
                 text += "<div class='oneLetterCol'><input id='"+ jumble_word[idx]+"' maxlength=1></div>";
@@ -49,20 +49,11 @@ xhr.onreadystatechange = function(){
             text += "</div>";
             //console.log("inputs",text);
             document.getElementById("jumble_this_word").innerHTML = text;
-        }
-        total_words=jumble_words.length;
+        }*/
+        //total_words=jumble_words.length;
     }else{
         console.log("Error connecting to",my_data);
     }
-
-    /*for (let idx = 0; idx < jumble_words.length; idx++) {
-        for (let letter of jumble_words[idx]){
-            letter = letter.toUpperCase();
-            let inputVal = document.getElementById(letter).value;
-            console.log(letter,inputVal);
-        }
-    }*/
-
 };
 xhr.open("GET",my_data,true);
 xhr.send();
