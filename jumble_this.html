@@ -14,28 +14,29 @@
     </div>
     <div class="clearfix">
       <h3>Instructions:</h3>
-      <p>Place one letter on each box. Use TAB key to input the next one.
+      <p>Place one letter on each box.<br>Use TAB key to input the next one.<br>
         Use DEL key to delete the input.<br>
-        The letter will be colored in <span style="color:tomato;">tomato</span> 
-        when it is wrong, otherwise in black when correct.</p>
+        The letter will be colored in <span style="color:tomato;">Tomato</span> 
+        <br>when it is wrong, otherwise in <br><span style="color:slateblue;">SlateBlue</span> when correct.</p>
     </div>
 
-    <div class="row">
+    <div class="clearfix" id="jumble_this_word"></div>
+
+    <!--div class="row">
       <div class="columnLeft">
-        <div class="clearfix" id="jumble_this_word"></div>
       </div>
       <div class="columnRight">
         <div class="clearfix" id="answer_check"></div>
       </div>
-    </div>
+    </div-->
     <div class="clearfix"><button onclick="getInputValue();">Submit Answers</button></div>
     <!--script src="static/shuffle_words.js"></script-->
     <script src="static/fetch_data.js"></script>
   </body>
-  <footer><p>a webApp developed in JS by <a href="github.com/ndlopez">ndzerglink</a></p>
+  <footer><p>a webApp developed in JavaScript by <a target="blank" href="https://www.github.com/ndlopez/jumble_game">ndzerglink</a></p>
     <p>Hello from
       <a target="blank" href="https://www.openstreetmap.org/search?query=35.17271%2C136.89547#map=18/35.17271/136.89547">
           N35 10'53" E136 54'23"</a></p>
-    <p><span class="copy-left">&copy;</span> CopyLeft 2022-03-23</p>
+    <p><span class="copy-left">&copy;</span> CopyLeft 2022-03-30</p>
   </footer>
 </html>

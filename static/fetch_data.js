@@ -20,7 +20,7 @@ build_boxes();
 
 async function build_boxes(){
     const data = await get_words();
-    console.log(data);
+    //console.log(data);
     for(let word of data){
         for(let thisLtr of word){
             thisLtr = thisLtr.toUpperCase();
@@ -60,18 +60,20 @@ async function get_words(){
         if( myShuffleWord === jumble_word){
             myShuffleWord = jumble_word.shuffle();
         }
-        text += "<div class='row' id='shufWord'><h2>" + myShuffleWord + "</h2></div>";
+        let divWidth = 34 * jumble_word.length;
+        text += "<div class='row' id='shufWord' style='width:" + divWidth + "px;'><h2>" + myShuffleWord + "</h2></div>";
         /* Build as many inputs as the length of a word*/
-        text += "<div class='row'>";
+        text += "<div class='row' style='width:"+ divWidth + "px;'>";
         for (let idx = 0; idx < jumble_word.length; idx++) {
             text += "<div class='oneLetterCol'><input class='wrongAns' ";
             text += "id='"+ jumble_word[idx]+"' maxlength=1></div>";            
         }
-        text += "<div class='result'></div>"
-        text += "</div><div class='row separator'></div>";
+        /*text += "<div class='result'></div>"*/
+        text += "</div><div class='row separator' style='width:" + divWidth + "px;'></div>";
         
         //console.log("word ",jumble_word,jdx);
         document.getElementById("jumble_this_word").innerHTML = text;
+        console.log(text);
     }
     return usedWords;
 }

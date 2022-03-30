@@ -3,12 +3,14 @@ body{
   font-family:Helvetica Neue, Helvetica, Arial, Lucida Grande, sans-serif;
   /*background: linear-gradient(45deg, hsl(240, 50%, 78%), hsl(30, 100%, 50%));*/
   background-color:#bed2e0;
-  width: 600px;
   padding: 20px 20px;
+  margin: 0px;
 }
-.header{
-    background-color:#bed2e0;
-    padding:20px;text-align:center;}
+.header, footer{
+  background-color:#bed2e0;
+  padding:0px;
+  text-align:center;
+}
 h1{color:#2e4054;}
 
 #currtime {
@@ -16,6 +18,7 @@ h1{color:#2e4054;}
   padding: 0px;
   color:#cc274c;
 }
+.clearfix{padding:20px;}
 .columnLeft{
   float:left;
   width: 70%; /*for 3 ->33.3%*/
@@ -31,31 +34,24 @@ h1{color:#2e4054;}
 }
 .oneLetterCol{
   float:left;
-  width:10%;
+  /*width: 32px;*/
   margin:0px;
   padding:2px;
   border:0px;
 }
-.result{
-  float: left;
-  width: 10%;
-  background-color: green;
-  height:35px;
-  border-radius: 35px;
-  margin-left: 20px;
-}
 #shufWord{
   padding-left: 10px;
   border: 0px;
+  text-align: center;
 }
 input{
-    font-size:x-large;
-    width:30px;
-    border: 1px solid #2e4054;
-    border-radius: 4px;
-    background-color: #ccc;
-    text-align:center;
-    text-transform: uppercase !important;
+  font-size:x-large;
+  width:30px;
+  border: 1px solid #2e4054;
+  border-radius: 4px;
+  background-color: #ccc;
+  text-align:center;
+  text-transform: uppercase !important;
 }
 /*input[data-state="wrongAns"]{color:tomato;}
 input[data-state="correctAns"]{color:slateblue;}*/
@@ -78,25 +74,21 @@ input[data-state="correctAns"]{color:slateblue;}*/
   clear:both;
   padding:0px;
 }
+#jumble_this_word{
+  width: 370px;
+  border:0px;
+  padding: 10px;
+}
 .separator{
-  background-color: #bed2e0;
-  height: 10px;
+  background-color: tomato;
+  height: 4px;
 }
-.separator:last-child{background-color:antiquewhite;}
-
-#jumble_this_word{border: 0px;}
-div{
-  /*opacity:0.8;filter:alpha(opacity=10);*/
+/*.separator:last-child{background-color:antiquewhite;}*/
+/*div{
   border:1px solid #bed2e0;
-  padding:0px;
-  text-align:left;/*justify;*/
-}
-.clearfix::after{
-  content:"";
-  clear:both;
-  display:table;
-  border: 0px;
-}
+  padding:20px;
+  text-align:justify;
+}*/
 /*menu dropdown*/
 ul{
   list-style-type:none;
@@ -134,7 +126,7 @@ button{
 /*Responsive layout to stack cols on top of each other
 @media only screen and (max-width:620px){
 */
-@media (max-width:800px){
+@media (max-width:620px){
     .menu, .column{
       width:100%;
       text-align: justify;
@@ -143,7 +135,7 @@ button{
       width: 100%;
       padding: 0px;
     }
+    .clearfix{width:auto;}
     .columnLeft,.columnRight{width:100%;}
     li{width:100%;}
-    .dropdown-content{width:50%;}
 }
