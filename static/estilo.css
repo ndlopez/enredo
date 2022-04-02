@@ -56,7 +56,9 @@ input{
 /*input[data-state="wrongAns"]{color:tomato;}
 input[data-state="correctAns"]{color:slateblue;}*/
 .wrongAns{color:tomato;}
+.wrongBar{background-color: tomato;}
 .correctAns{color: slateblue;}
+.correctBar{background-color: slateblue;}
 /*2 columns*/
 .column{
   float:left;
@@ -80,7 +82,7 @@ input[data-state="correctAns"]{color:slateblue;}*/
   padding: 10px;
 }
 .separator{
-  background-color: tomato;
+  /*background-color: tomato;*/
   height: 4px;
 }
 /*.separator:last-child{background-color:antiquewhite;}*/
