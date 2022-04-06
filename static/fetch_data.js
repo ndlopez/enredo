@@ -17,8 +17,17 @@ String.prototype.shuffle = function () {
     return a.join("");
 }
 
+function shuffleArray(myArr){
+    for (let idx = myArr.length -1;idx > 0;idx--){
+        const jdx = Math.floor(Math.random()*(idx + 1));
+        [myArr[idx],myArr[jdx]]=[myArr[jdx],myArr[idx]];
+    }
+    return myArr
+}
+
 build_boxes();
-let counter =0;
+
+let counter = 0, allChecked = 0;
 function matchLetter(myLetter,myId,kdx,wordLen){
     let newKount=0;
     var inputVal = document.getElementById(myId);
@@ -29,31 +38,26 @@ function matchLetter(myLetter,myId,kdx,wordLen){
             inputVal.classList.remove("wrongAns");
             inputVal.classList.add("correctAns");
             counter += 1;
-            console.log("Correct ans");
+            //console.log("Correct ans");
         }else{
             if(gotValue === "" || gotValue !== myLetter){
                 inputVal.classList.remove("correctAns");
                 inputVal.classList.add("wrongAns");
-                console.log("Wrong ans");
+                //console.log("Wrong ans");
             }
         }
-        if (kdx != 0){
-            newKount = counter - (wordLen * kdx);
-        }else{
-            newKount= counter;
-        }
+        newKount= counter;
         if(newKount == wordLen){
+            counter =0;allChecked += 1;
             var auxStr= "word"+String(kdx+1);
-            console.log("all letters are correct",auxStr);
+            //console.log("all letters are correct",auxStr);
             var getSep = document.getElementById(auxStr);
             getSep.classList.remove("wrongBar");
             getSep.classList.add("correctBar");
+            if (allChecked == 4){alert("Congratulations");}
         }else{console.log("some letters are wrong",newKount);}
-        /*if(counter == wordLen){
-            alert("Congratulations");
-        }*/
-        console.log("id",myId,"gotValue",gotValue,"myLet",myLetter);
-        console.log("count",counter,"newK",newKount,wordLen,kdx);
+        //console.log("id",myId,"gotValue",gotValue,"myLet",myLetter);
+        //console.log("count",counter,"newK",newKount,wordLen,kdx);
     });
 }
 
@@ -63,7 +67,7 @@ async function build_boxes(){
     for(var word of data){
         let jdx=0;
         for(var thisLtr of word){
-            thisLtr = thisLtr.toUpperCase();counter=0;
+            thisLtr = thisLtr.toUpperCase();
             var gotId = "letter" + idx + jdx;
             matchLetter(thisLtr,gotId,idx,word.length);
             jdx = jdx + 1;
@@ -74,15 +78,16 @@ async function build_boxes(){
 
 async function get_words(){
     const response = await fetch(url);
-    const jumble_words = await response.json();
+    const jumbleWords = await response.json();
+    const jumble_words = shuffleArray(jumbleWords);
     var usedWords = [];
     var text = "";
 
     //console.log(jumble_words);
     for (let jdx = 0; jdx < numWords; jdx++) {
-        var randIdx = Math.floor(Math.random()*jumble_words.length);
-        var jumble_word = jumble_words[randIdx];
-        console.log(randIdx,jumble_word)
+        //var randIdx = Math.floor(Math.random()*jumble_words.length);
+        var jumble_word = jumble_words[jdx];
+        //console.log(randIdx,jumble_word)
         usedWords.push(jumble_word);
         jumble_word = jumble_word.toUpperCase();
         var myShuffleWord = jumble_word.shuffle()

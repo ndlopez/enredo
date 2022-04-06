@@ -12,7 +12,7 @@ issue:
 require 'json'
 
 num_words = 50
-datFile = File.open("en_words.txt")
+datFile = File.open("../data/en_words_nonames.txt")
 file_data = datFile.readlines.map(&:chomp)
 datFile.close
 
@@ -29,7 +29,7 @@ while jumble_words.length < num_words
   jdx+=1
 end
 
-File.open("jumble_words.json","w") do |f|
+File.open("../data/jumble_words.json","w") do |f|
   f.write(jumble_words.to_json)
 end
 print "JSON file saved. Lenght: ",jumble_words.length, "words.\n"
