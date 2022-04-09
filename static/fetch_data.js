@@ -73,7 +73,7 @@ async function build_boxes(){
             jdx = jdx + 1;
         }
         idx = idx + 1;
-    }//for idx
+    }
 }
 
 async function get_words(){
@@ -130,8 +130,8 @@ function idontWork(){
                     }
                 }
             }
-            console.log("correct ans",counter);
+            //console.log("correct ans",counter);
         }
-        console.log("total letters in ",usedWords[idx],usedWords[idx].length);
+        //console.log("total letters in ",usedWords[idx],usedWords[idx].length);
     }
 }
