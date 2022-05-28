@@ -14,7 +14,7 @@ String.prototype.shuffle = function () {
         a[i] = a[j];
         a[j] = tmp;
     }
-    return a.join("");
+    return a //.join("");
 }
 
 function shuffleArray(myArr){
@@ -26,10 +26,15 @@ function shuffleArray(myArr){
 }
 
 build_boxes();
+document.body.appendChild(addModal())
 
 let counter = 0, allChecked = 0;
 function matchLetter(myLetter,myId,kdx,wordLen){
     let newKount=0;
+
+    var thisId = "let" + myId.slice(-2);
+    var pressVal = document.getElementById(thisId);
+    
     var inputVal = document.getElementById(myId);
     inputVal.addEventListener('keyup',function(event){
         let gotValue = event.key;
@@ -38,6 +43,8 @@ function matchLetter(myLetter,myId,kdx,wordLen){
             inputVal.classList.remove("wrongAns");
             inputVal.classList.add("correctAns");
             counter += 1;
+            pressVal.classList.remove("notPressed");
+            pressVal.classList.add("yesPressed");
             //console.log("Correct ans");
         }else{
             if(gotValue === "" || gotValue !== myLetter){
@@ -46,6 +53,7 @@ function matchLetter(myLetter,myId,kdx,wordLen){
                 //console.log("Wrong ans");
             }
         }
+
         newKount= counter;
         if(newKount == wordLen){
             counter =0;allChecked += 1;
@@ -54,9 +62,10 @@ function matchLetter(myLetter,myId,kdx,wordLen){
             var getSep = document.getElementById(auxStr);
             getSep.classList.remove("wrongBar");
             getSep.classList.add("correctBar");
-            if (allChecked == 4){alert("Congratulations");}
+            if (allChecked == 4){
+                openNav();/*alert("Congratulations");*/}
         }else{console.log("some letters are wrong",newKount);}
-        //console.log("id",myId,"gotValue",gotValue,"myLet",myLetter);
+        console.log("id",myId,"gotValue",gotValue,"myLet",myLetter);
         //console.log("count",counter,"newK",newKount,wordLen,kdx);
     });
 }
@@ -95,7 +104,20 @@ async function get_words(){
             myShuffleWord = jumble_word.shuffle();
         }
         let divWidth = 34 * jumble_word.length;
-        text += "<div class='row' id='shufWord' style='width:" + divWidth + "px;'><h2>" + myShuffleWord + "</h2></div>";
+
+        let idx=0;
+        var spanArr = [];
+        jumble_word.split("").forEach(el => {
+            var spanTxt = "<span class='notPressed' id='let" + jdx + idx + "'>"+ el + " </span>";
+            //spanLetters += spanText
+            spanArr.push(spanTxt);
+            idx +=1;
+        });
+        /*text += "<div class='row' id='shufWord' style='width:" + divWidth + "px;'><h2>" + myShuffleWord + "</h2></div>";*/
+        var myWord = shuffleArray(spanArr);
+        text += "<div class='row' id='shufWord' style='width:" + divWidth + "px;'><h2>";
+        myWord.forEach(el => {text += el;})
+        text += "</h2></div>";
         /* Build as many inputs as the length of a word*/
         text += "<div class='row' style='width:"+ divWidth + "px;'>";
         for (let idx = 0; idx < jumble_word.length; idx++) {
@@ -109,6 +131,32 @@ async function get_words(){
         document.getElementById("jumble_this_word").innerHTML = text;
     }
     return usedWords;
+}
+
+/* open and close modal */
+function openNav(){
+    document.getElementById("SuccessNav").style.display = "block";
+    document.body.style.overflow = "hidden";
+}
+function closeNav(thisObj){
+    document.getElementById(thisObj).style.display = "none";
+    document.body.style.overflow = "auto";
+}
+function addModal(){
+    const secDiv = document.createElement("div");
+    secDiv.id = "SuccessNav";
+    secDiv.className = "success_window";
+    secDiv.innerHTML = "<div class='success-content'><div class='success-header'>"+
+    "<span class='closeBtn' onclick=\"closeNav('SuccessNav')\">&times;</span>" +
+    "</div><div class='success-body'>"+
+    "<img class='success-svg' src='static/thumbs-up.svg'/><h2>Success</h2>" +
+    "<p>You have solved the puzzle.</p></div></div>";
+    window.onclick = function(ev){
+        if (ev.target == secDiv){
+            secDiv.style.display = "none";
+        }
+    }
+    return secDiv;
 }
 
 function idontWork(){
