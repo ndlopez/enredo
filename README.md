@@ -29,6 +29,7 @@ Ruby code reads the above TXT file and returns a JSON file with 4 words. JS code
 1. ~~When all the correct letters are finally inputted on the boxes it should display a message saying "Congratulations you finished!"~~
 2. ~~I added a bar at the bottom of each word. It changes only for the first word. The global counter does not match the current word length.~~
 3. On mobile, none of the features work at all, i.e. no coloring of the correct input letter, nor the bar.
+4. When SPACEBAR is input after a correct input, it double counts the correct answers, thus resulting on early display of success-window.
 
 ---
 Environment: MacBook Pro, MacOS 15.5

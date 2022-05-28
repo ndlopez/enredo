@@ -65,7 +65,7 @@ function matchLetter(myLetter,myId,kdx,wordLen){
             if (allChecked == 4){
                 openNav();/*alert("Congratulations");*/}
         }else{console.log("some letters are wrong",newKount);}
-        console.log("id",myId,"gotValue",gotValue,"myLet",myLetter);
+        //console.log("id",myId,"gotValue",gotValue,"myLet",myLetter);
         //console.log("count",counter,"newK",newKount,wordLen,kdx);
     });
 }
@@ -138,8 +138,8 @@ function openNav(){
     document.getElementById("SuccessNav").style.display = "block";
     document.body.style.overflow = "hidden";
 }
-function closeNav(thisObj){
-    document.getElementById(thisObj).style.display = "none";
+function closeNav(){
+    document.getElementById("SuccessNav").style.display = "none";
     document.body.style.overflow = "auto";
 }
 function addModal(){
@@ -147,7 +147,7 @@ function addModal(){
     secDiv.id = "SuccessNav";
     secDiv.className = "success_window";
     secDiv.innerHTML = "<div class='success-content'><div class='success-header'>"+
-    "<span class='closeBtn' onclick=\"closeNav('SuccessNav')\">&times;</span>" +
+    "<span class='closeBtn' onclick='closeNav()'>&times;</span>" +
     "</div><div class='success-body'>"+
     "<img class='success-svg' src='static/thumbs-up.svg'/><h2>Success</h2>" +
     "<p>You have solved the puzzle.</p></div></div>";
