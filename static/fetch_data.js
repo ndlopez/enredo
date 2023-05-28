@@ -6,11 +6,10 @@ const url ='https://raw.githubusercontent.com/ndlopez/jumble_game/main/data/jumb
 const numWords = 4;
 
 String.prototype.shuffle = function () {
-    var a = this.split(""),
-        n = a.length;
-    for(var i = n - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var tmp = a[i];
+    let a = this.split(""), n = a.length;
+    for(let i = n - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        let tmp = a[i];
         a[i] = a[j];
         a[j] = tmp;
     }
@@ -32,10 +31,10 @@ let counter = 0, allChecked = 0;
 function matchLetter(myLetter,myId,kdx,wordLen){
     let newKount=0;
 
-    var thisId = "let" + myId.slice(-2);
-    var pressVal = document.getElementById(thisId);
+    let thisId = "let" + myId.slice(-2);
+    const pressVal = document.getElementById(thisId);
     
-    var inputVal = document.getElementById(myId);
+    const inputVal = document.getElementById(myId);
     inputVal.addEventListener('keyup',function(event){
         let gotValue = event.key;
         gotValue = gotValue.toUpperCase();
@@ -57,9 +56,9 @@ function matchLetter(myLetter,myId,kdx,wordLen){
         newKount= counter;
         if(newKount == wordLen){
             counter =0;allChecked += 1;
-            var auxStr= "word"+String(kdx+1);
+            let auxStr= "word"+String(kdx+1);
             //console.log("all letters are correct",auxStr);
-            var getSep = document.getElementById(auxStr);
+            const getSep = document.getElementById(auxStr);
             getSep.classList.remove("wrongBar");
             getSep.classList.add("correctBar");
             if (allChecked == 4){
@@ -73,11 +72,11 @@ function matchLetter(myLetter,myId,kdx,wordLen){
 async function build_boxes(){
     const data = await get_words();
     let idx=0;
-    for(var word of data){
+    for(let word of data){
         let jdx=0;
-        for(var thisLtr of word){
+        for(let thisLtr of word){
             thisLtr = thisLtr.toUpperCase();
-            var gotId = "letter" + idx + jdx;
+            let gotId = "letter" + idx + jdx;
             matchLetter(thisLtr,gotId,idx,word.length);
             jdx = jdx + 1;
         }
@@ -89,8 +88,8 @@ async function get_words(){
     const response = await fetch(url);
     const jumbleWords = await response.json();
     const jumble_words = shuffleArray(jumbleWords);
-    var usedWords = [];
-    var text = "";
+    let usedWords = [];
+    let text = "";
 
     //console.log(jumble_words);
     for (let jdx = 0; jdx < numWords; jdx++) {
@@ -99,22 +98,22 @@ async function get_words(){
         //console.log(randIdx,jumble_word)
         usedWords.push(jumble_word);
         jumble_word = jumble_word.toUpperCase();
-        var myShuffleWord = jumble_word.shuffle()
+        let myShuffleWord = jumble_word.shuffle()
         if( myShuffleWord === jumble_word){
             myShuffleWord = jumble_word.shuffle();
         }
         let divWidth = 34 * jumble_word.length;
 
         let idx=0;
-        var spanArr = [];
+        let spanArr = [];
         jumble_word.split("").forEach(el => {
-            var spanTxt = "<span class='notPressed' id='let" + jdx + idx + "'>"+ el + " </span>";
+            let spanTxt = "<span class='notPressed' id='let" + jdx + idx + "'>"+ el + " </span>";
             //spanLetters += spanText
             spanArr.push(spanTxt);
             idx +=1;
         });
         /*text += "<div class='row' id='shufWord' style='width:" + divWidth + "px;'><h2>" + myShuffleWord + "</h2></div>";*/
-        var myWord = shuffleArray(spanArr);
+        const myWord = shuffleArray(spanArr);
         text += "<div class='row' id='shufWord' style='width:" + divWidth + "px;'><h2>";
         myWord.forEach(el => {text += el;})
         text += "</h2></div>";
@@ -157,29 +156,4 @@ function addModal(){
         }
     }
     return secDiv;
-}
-
-function idontWork(){
-    for (let idx = 0; idx < usedWords.length; idx++) {
-        for (let letter of usedWords[idx]){
-            letter = letter.toUpperCase();
-            let inputVal = document.getElementById(letter);
-            inputVal.onkeyup = function(){
-                var myVal = inputVal.value;
-                if (myVal.toUpperCase() === letter){
-                    inputVal.classList.remove("wrongAns");
-                    inputVal.classList.add("correctAns");
-                    counter += 1;
-                }
-                else{
-                    if(myVal.value === "" || myVal.toUpperCase !== letter){
-                        inputVal.classList.remove("correctAns");
-                        inputVal.classList.add("wrongAns");
-                    }
-                }
-            }
-            //console.log("correct ans",counter);
-        }
-        //console.log("total letters in ",usedWords[idx],usedWords[idx].length);
-    }
 }
