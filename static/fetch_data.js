@@ -88,6 +88,7 @@ async function get_words(){
     const response = await fetch(url);
     const jumbleWords = await response.json();
     const jumble_words = shuffleArray(jumbleWords);
+    const inputWidth = 40;
     let usedWords = [];
     let text = "";
 
@@ -102,7 +103,7 @@ async function get_words(){
         if( myShuffleWord === jumble_word){
             myShuffleWord = jumble_word.shuffle();
         }
-        let divWidth = 34 * jumble_word.length;
+        let divWidth = inputWidth * jumble_word.length;
 
         let idx=0;
         let spanArr = [];
