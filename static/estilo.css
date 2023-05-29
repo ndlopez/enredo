@@ -72,8 +72,9 @@ main{
   margin-bottom: 2px;
 }
 input{
-  font-size:x-large;
+  font-size:large;
   width:30px;
+  height: 35px;
   border: 1px solid #2e4054;
   border-radius: 4px;
   background-color: #bed2e0;
