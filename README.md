@@ -34,3 +34,15 @@ Language: JavaScript, Ruby
 
 Editor: Emacs
 
+---
+## unrelated?
+How to RM remote and local branch
+
+* Remote
+$ git push -d origin "branch\_name"
+
+$ git branch -d "branch\_name"
+
+* Local
+$ git branch -D "branch\_name"
+
