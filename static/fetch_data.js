@@ -95,7 +95,7 @@ async function get_words(){
     //console.log(jumble_words);
     for (let jdx = 0; jdx < numWords; jdx++) {
         //var randIdx = Math.floor(Math.random()*jumble_words.length);
-        var jumble_word = jumble_words[jdx];
+        let jumble_word = jumble_words[jdx];
         //console.log(randIdx,jumble_word)
         usedWords.push(jumble_word);
         jumble_word = jumble_word.toUpperCase();
