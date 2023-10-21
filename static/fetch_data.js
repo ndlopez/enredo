@@ -46,7 +46,8 @@ function matchLetter(myLetter,myId,kdx,wordLen){
             pressVal.classList.add("yesPressed");
             //console.log("Correct ans");
         }else{
-            if(gotValue === "" || gotValue !== myLetter){
+            if(gotValue === "" || gotValue !== myLetter || gotValue == "BACKSPACE"){
+                // Deal here with miss inputs
                 inputVal.classList.remove("correctAns");
                 inputVal.classList.add("wrongAns");
                 //console.log("Wrong ans");
