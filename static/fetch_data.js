@@ -3,7 +3,7 @@ Output random shuffled words*/
 
 const url ='https://raw.githubusercontent.com/ndlopez/jumble_game/main/data/jumble_words.json';
 
-const numWords = 4;
+const numWords = 5;
 
 String.prototype.shuffle = function () {
     let a = this.split(""), n = a.length;
@@ -62,9 +62,9 @@ function matchLetter(myLetter,myId,kdx,wordLen){
             const getSep = document.getElementById(auxStr);
             getSep.classList.remove("wrongBar");
             getSep.classList.add("correctBar");
-            if (allChecked == 4){
+            if (allChecked == numWords){
                 openNav();/*alert("Congratulations");*/}
-        }else{console.log("some letters are wrong",newKount);}
+        }else{console.log(newKount,"letters are correct");}
         console.log("id",myId,"gotValue",gotValue,"myLet",myLetter);
         //console.log("count",counter,"newK",newKount,wordLen,kdx);
     });
