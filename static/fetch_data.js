@@ -124,6 +124,12 @@ async function get_words(){
         for (let idx = 0; idx < jumble_word.length; idx++) {
             text += `<div class="oneLetterCol"><input class="wrongAns" id="letter${jdx}${idx}" size="1" maxlength="1" onkeyup="autoTab('letter${jdx}${idx}', '1', 'letter${jdx}${idx+1}')></div>`;
         }
+        /*e.g. On the DOM should be like this:
+        <div>Phone Number:
+        <input type="text" id="area" size="1" maxlength="1" onkeyup="autoTab('area', '1', 'prefix')"/> -
+        <input type="text" id="prefix" size="1" maxlength="1" onkeyup="autoTab('prefix', '1', 'suffix')"/> -  
+        <input type="text" id="suffix" size="1" maxlength="1"/></div>
+        */
         /*text += "<div class='result'></div>"*/
         text += "</div><div class='row separator wrongBar' id=word" + (jdx + 1) + " style='width:" + divWidth + "px;'></div>";
         
