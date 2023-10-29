@@ -122,8 +122,7 @@ async function get_words(){
         /* Build as many inputs as the length of a word*/
         text += "<div class='row' style='width:"+ divWidth + "px;'>";
         for (let idx = 0; idx < jumble_word.length; idx++) {
-            text += "<div class='oneLetterCol'><input class='wrongAns'";
-            text += "id='letter"+ jdx + idx+"' maxlength=1></div>";            
+            text += `<div class="oneLetterCol"><input class="wrongAns" id="letter${jdx}${idx}" size="1" maxlength="1" onkeyup="autoTab('letter${jdx}${idx}', '1', 'letter${jdx}${idx+1}')></div>`;
         }
         /*text += "<div class='result'></div>"*/
         text += "</div><div class='row separator wrongBar' id=word" + (jdx + 1) + " style='width:" + divWidth + "px;'></div>";
@@ -134,6 +133,11 @@ async function get_words(){
     return usedWords;
 }
 
+/* autoTAB function */
+function autoTab(field1, len, field2) {
+    if (document.getElementById(field1).value.length == len) {
+        document.getElementById(field2).focus();}
+}
 /* open and close modal */
 function openNav(){
     document.getElementById("SuccessNav").style.display = "block";
