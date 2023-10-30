@@ -122,7 +122,8 @@ async function get_words(){
         /* Build as many inputs as the length of a word*/
         text += "<div class='row' style='width:"+ divWidth + "px;'>";
         for (let idx = 0; idx < jumble_word.length; idx++) {
-            text += `<div class="oneLetterCol"><input class="wrongAns" id="letter${jdx}${idx}" size="1" maxlength="1" onkeyup="autoTab('letter${jdx}${idx}', '1', 'letter${jdx}${idx+1}')></div>`;
+            text += `<div class="oneLetterCol"><input class="wrongAns" id="letter${jdx}${idx}" size="1" maxlength="1" onkeyup="autoTab('letter${jdx}${idx}', '1', 'letter${jdx}${idx+1}')"></div>`;
+            //for the last letter in the word it should jump to next word. 
         }
         /*e.g. On the DOM should be like this:
         <div>Phone Number:
