@@ -30,7 +30,7 @@ document.body.appendChild(addModal())
 let counter = 0, allChecked = 0;
 function matchLetter(myLetter,myId,kdx,wordLen){
     let newKount=0;
-
+    const bad_inputs = ["","BACKSPACE","DELETE","ARROWLEFT","ARROWRIGHT"];
     let thisId = "let" + myId.slice(-2);
     const pressVal = document.getElementById(thisId);
     
@@ -46,7 +46,7 @@ function matchLetter(myLetter,myId,kdx,wordLen){
             pressVal.classList.add("yesPressed");
             //console.log("Correct ans");
         }else{
-            if(gotValue === "" || gotValue !== myLetter || gotValue == "BACKSPACE"){
+            if(bad_inputs.includes(gotValue) || gotValue !== myLetter){
                 // Deal here with miss inputs
                 inputVal.classList.remove("correctAns");
                 inputVal.classList.add("wrongAns");
